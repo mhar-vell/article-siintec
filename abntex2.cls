@@ -150,7 +150,7 @@
 \newcommand{\orientadorname}{Orientador:}
 \newcommand{\coorientadorname}{Coorientador:}
 \newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
-\newcommand{\resumoname}{Resumo} 
+\newcommand{\resumoname}{} 
 \newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
 \newcommand{\listadesimbolosname}{Lista de s\'imbolos}
 \newcommand{\fontename}{Fonte}
@@ -250,7 +250,8 @@
 \newcommand{\ABNTEXsectionfontsize}{\Large}
 
 \newcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
-\newcommand{\ABNTEXsubsectionfontsize}{\large}
+\newcommand{\ABNTEXsubsectionfontsize}{\normalsize
+}
 
 \newcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
 \newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
@@ -708,7 +709,7 @@
 \let\olddate\date
 \renewcommand{\date}[1]{\AtBeginDocument{\olddate{#1}}}
 \newcommand{\data}[1]{\date{#1}}
-\newcommand{\imprimirdata}{\thedate}
+%\newcommand{\imprimirdata}{\thedate}
 
 % Comandos de dados - instituicao
 \providecommand{\imprimirinstituicao}{}
@@ -754,8 +755,9 @@
 % ---
 % Titulos em lingua estrangeira para artigos: ABNT NBR 6022:2018
 \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-\renewcommand{\maketitlehookb}{\LARGE\center\textit{\theforeigntitle}}
+\renewcommand{\maketitlehookb}{\large\raggedright\textbf{\theforeigntitle}}
 }{}
+
 % ---
 
 % ---
@@ -1042,7 +1044,7 @@
 
     \vfill
     \begin{center}
-    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \ABNTEXchapterfont\bfseries\large\imprimirtitulo
     \end{center}
     \vfill
     
@@ -1076,7 +1078,7 @@
 	
     \vspace*{\fill}\vspace*{\fill}
     \begin{center}
-      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+      \ABNTEXchapterfont\bfseries\large\imprimirtitulo
     \end{center}
     \vspace*{\fill}
 	

@@ -52,7 +52,6 @@
 % ---
 % Pacotes fundamentais 
 % ---
-
 \usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
@@ -61,8 +60,9 @@
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
-% \usepackage{helvet}
-% \renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{parskip}
 % ---
 		
 % ---
@@ -94,18 +94,19 @@
 		Citado #1 vezes nas páginas #2.%
 	\fi}%
 % ---
+%\nouppercaseheads
 \makepagestyle{meuestilo}
   %%cabeçalhos
   \makeevenhead{meuestilo} %%pagina par
    %   {topo par à esquerda}
    %   {centro \thepage}
    %   {direita}
-     {}{}{VII INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY (SIINTEC)}
+     {}{}{\vspace{-3em} \\ \footnotesize{VII INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY (SIINTEC)}\\ {\textit{One Planet, one Ocean and one Health. - 2021}\\ \vspace{\onelineskip}}}
   \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
    %   {topo ímpar/oneside à esquerda}
    %   {centro\thepage}
    %   {direita}
-      {}{}{VII INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY (SIINTEC)}
+      {}{}{\vspace{-3em} \\ \footnotesize{VII INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY (SIINTEC)}\\ {\textit{One Planet, one Ocean and one Health. - 2021}\\ \vspace{\onelineskip}}} 
   %\makeheadrule{meuestilo}{\textwidth}{\normalrulethickness} %linha
   %% rodapé
   \makeevenfoot{meuestilo}
@@ -119,64 +120,24 @@
       % {centro \thepage}
       % {direita}
 
-
-%%% STYLE OF PAGES NUMBERING
-\makepagestyle{mypagestyle}
-\makeevenfoot{mypagestyle}{November 2016}{\insertoverline}{\thepage}
-\makeoddfoot{mypagestyle}{November 2016}{\insertoverline}{\thepage}
-\makeevenhead{mypagestyle}{Schweizer Jugend Forscht}{\insertunderline}{Potz Blitz - Gewitter in Theorie und Praxis}
-\makeoddhead{mypagestyle}{Schweizer Jugend Forscht}{\insertunderline}{Potz Blitz - Gewitter in Theorie und Praxis}
-
-
-
-% % HEADERS ---------------------------------------------------------------------
-% \usepackage{fancyhdr}
-% \setlength{\headheight}{40pt} 
-% % adjust pagestyle "plain" which is used on the first page
-% \fancypagestyle{plain}{%
-%   \fancyhf{}
-%   \renewcommand{\headrulewidth}{0.6pt}
-
-%   \fancyhead[L]{%
-%     \begin{minipage}{0.35\textwidth}
-%       % \sf \small \thejournal 
-%       %\includegraphics[width=0.85\textwidth]{tismir}
-%     \end{minipage}
-%     \hfill
-%     \begin{minipage}{0.65\textwidth} \sf \small
-%       % \theauthorref\ (\theyear).
-%       % \thetitleref,
-%       % \textit{\thejournal}, \thevolume(\theissue),
-%       % pp.\ \thepages, DOI: https://doi.org/\thedoi
-%       VII INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY (SIINTEC)\\
-%       \rightline{\textit{One Planet, one Ocean and one Health. - 2021}}
-%     \end{minipage}
-%     \vspace{0.5em}
-%     }
-% }%
-
-
 % --- Informações de dados para CAPA e FOLHA DE ROSTO ---
-\titulo{Modelo Canônico de Artigo científico com \abnTeX}
-\tituloestrangeiro{Canonical article template in \abnTeX: optional foreign title}
+\titulo{TITLE ARIAL 14, BOLD AND UPPERCASE, JUSTIFIED, SIMPLE SPACE (\underline{in Portuguese}), WITH A MAXIMUM OF THREE LINES}
+
+\tituloestrangeiro{TITLE ARIAL 14, BOLD AND UPPERCASE, JUSTIFIED, SINGLE SPACE (\underline{in English}), WITH A MAXIMUM OF THREE LINES}
+
 
 \autor{
-Equipe \abnTeX\thanks{``Recomenda-se que os dados de vinculação e
-endereço constem em nota, com sistema de chamada próprio, diferente do sistema 
-adotado para citações no texto.'' \url{http://www.abntex.net.br/}} 
-\\[0.5cm] 
-Lauro César Araujo\thanks{``Constar currículo sucinto de cada autor, com 
-vinculação corporativa e endereço de contato.''} }
+Nome Sobrenome\thanks{Instiutição A},  
+Nome Sobrenome\thanks{Instituição B} 
+}
 
-\local{Brasil}
-\data{2018, v<VERSION>}
+
+% \local{Brasil}
+% \data{2018, v<VERSION>}
 % ---
 
 % ---
-% Configurações de aparência do PDF final
-
-% alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
+% Configura\baselineskipr{blue}{RGB}{41,5,195}
 
 % informações do PDF
 \makeatletter
@@ -198,34 +159,6 @@ vinculação corporativa e endereço de contato.''} }
 
 \makeatother
 % --- 
-
-% % HEADERS ---------------------------------------------------------------------
-% \usepackage{fancyhdr}
-% \setlength{\headheight}{40pt} 
-% % adjust pagestyle "plain" which is used on the first page
-% \fancypagestyle{plain}{%
-%   \fancyhf{}
-%   \renewcommand{\headrulewidth}{0.6pt}
-
-%   \fancyhead[L]{%
-%     \begin{minipage}{0.35\textwidth}
-%       % \sf \small \thejournal 
-%       %\includegraphics[width=0.85\textwidth]{tismir}
-%     \end{minipage}
-%     \hfill
-%     \begin{minipage}{0.65\textwidth} \sf \small
-%       % \theauthorref\ (\theyear).
-%       % \thetitleref,
-%       % \textit{\thejournal}, \thevolume(\theissue),
-%       % pp.\ \thepages, DOI: https://doi.org/\thedoi
-%       VII INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY (SIINTEC)\\
-%       \rightline{\textit{One Planet, one Ocean and one Health. - 2021}}
-%     \end{minipage}
-%     \vspace{0.5em}
-%     }
-% }%
-
-
 
 % ---
 % compila o indice
@@ -260,6 +193,7 @@ vinculação corporativa e endereço de contato.''} }
 % ----
 \begin{document}
 
+\pagestyle{meuestilo}
 % Seleciona o idioma do documento (conforme pacotes do babel)
 %\selectlanguage{english}
 \selectlanguage{brazil}
@@ -283,45 +217,63 @@ vinculação corporativa e endereço de contato.''} }
 %---
 
 % página de titulo principal (obrigatório)
-\maketitle
+%\maketitle
 
 %%usar o estilo criado na primeira página do artigo:
-%\pretextual
-%\pagestyle{meuestilo}
+\pretextual
+\pagestyle{meuestilo}
 
 % titulo em outro idioma (opcional)
 
 
-
-% resumo em português
-\begin{resumoumacoluna}
- Conforme a ABNT NBR 6022:2018, o resumo no idioma do documento é elemento obrigatório. 
- Constituído de uma sequência de frases concisas e objetivas e não de uma 
- simples enumeração de tópicos, não ultrapassando 250 palavras, seguido, logo 
- abaixo, das palavras representativas do conteúdo do trabalho, isto é, 
- palavras-chave e/ou descritores, conforme a NBR 6028. (\ldots) As 
- palavras-chave devem figurar logo abaixo do resumo, antecedidas da expressão 
- Palavras-chave:, separadas entre si por ponto e finalizadas também por ponto.
- 
- \vspace{\onelineskip}
- 
- \noindent
- \textbf{Palavras-chave}: latex. abntex. editoração de texto.
-\end{resumoumacoluna}
-
-
 % resumo em inglês
-\renewcommand{\resumoname}{Abstract}
-\begin{resumoumacoluna}
- \begin{otherlanguage*}{english}
-   According to ABNT NBR 6022:2018, an abstract in foreign language is optional.
+% \renewcommand{\resumoname}{}
+% \begin{resumoumacoluna}
+%  \begin{otherlanguage*}{english}
+
+   \vspace*{2pt}
+
+   %\vspace{\onelineskip}
+   \noindent
+   \textbf{\large{TITLE ARIAL 14, BOLD AND UPPERCASE, JUSTIFIED, SINGLE SPACE (\underline{in English}), WITH A MAXIMUM OF THREE LINES}}
+   
+   \vspace{\onelineskip}
+   \noindent
+   Rafael Silva Teixeira$^1$, Second Author$^{a,b}$, Third Author$^b$ etc
+   \vspace{\onelineskip}
+
+   \noindent
+   $^{a, 1}$ \textit{Institute Name, Country}\\
+   $^b$ \textit{Department, Institute Name, if any}
+
+   \vspace*{1.2cm}
+   \noindent
+   \normalsize
+   \textbf{Abstract:} The abstract must be written in Arial font, size 12, and within this area. The text should be justified. The abstract should include the objective, methodology, main results and conclusions. It should not exceed 10 lines.
 
    \vspace{\onelineskip}
- 
    \noindent
-   \textbf{Keywords}: latex. abntex.
- \end{otherlanguage*}  
-\end{resumoumacoluna}
+   \textbf{Keywords}: must include 3 to 5 keywords, separated by semicolons.
+%  \end{otherlanguage*}  
+% \end{resumoumacoluna}
+
+
+% resumo em português
+%\begin{resumoumacoluna}
+   \vspace*{1.5cm}
+   \noindent
+   \textbf{\large{TITLE ARIAL 14, BOLD AND UPPERCASE, JUSTIFIED, SIMPLE SPACE (\underline{in Portuguese}), WITH A MAXIMUM OF THREE LINES}}
+
+   \vspace{\onelineskip}
+   \noindent
+   \normalsize
+   \textbf{Resumo:} O resumo deve ser digitado em português e em fonte Arial tamanho 12, e dentro desta área. O texto deve ser justificado. O resumo deve conter o objetivo, metodologia, principais resultados e conclusões. Não deve ultrapassar 10 linhas.
+
+   \vspace{\onelineskip}
+   \noindent
+   \textbf{Palavras-chave:} deve ter no mínimo de 3 a 5 palavras-chave, em português, separadas por ponto e vírgula.
+%\end{resumoumacoluna}
+
 
 % ]  				% FIM DE ARTIGO EM DUAS COLUNAS
 % ---
@@ -338,6 +290,9 @@ vinculação corporativa e endereço de contato.''} }
 % ----------------------------------------------------------
 \textual
 \pagestyle{meuestilo}
+
+
+\newpage
 
 % ----------------------------------------------------------
 % Introdução
