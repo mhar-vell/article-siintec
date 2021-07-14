@@ -247,7 +247,7 @@
 \newcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
 
 \newcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
-\newcommand{\ABNTEXsectionfontsize}{\Large}
+\newcommand{\ABNTEXsectionfontsize}{\normalsize}
 
 \newcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
 \newcommand{\ABNTEXsubsectionfontsize}{\normalsize
@@ -421,7 +421,7 @@
 
 % redefine os comandos *paragraph* para *subsubsubsection* ****
 \newcommand{\subsubsubsection}{\paragraph}
-\newcommand{\cftbeforesubsubsubsectionskip}{\cftbeforeparagraphskip}
+\newcommand{\cftbeforesubsubsubskip}{\cftbeforeparagraphskip}
 \newcommand{\cftsubsubsubsectionfont}{\cftparagraphfont}
 \newcommand{\setsubsubsubsecheadstyle}{\setparaheadstyle}
 
