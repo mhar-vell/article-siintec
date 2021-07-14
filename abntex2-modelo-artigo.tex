@@ -64,6 +64,15 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{parskip}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{listings}
+
+\usepackage{pgfplots}
+\usepackage{threeparttable}
+\usepackage{amsmath}
+
 % ---
 		
 % ---
@@ -80,7 +89,9 @@
 \citebrackets[]
 
 % ---
-
+% Declare the path(s) where your graphic files are ----------------------------
+\graphicspath{{figs/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg,.tikz}
 % ---
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
@@ -101,27 +112,15 @@
 \makepagestyle{meuestilo}
   %%cabeçalhos
   \makeevenhead{meuestilo} %%pagina par
-   %   {topo par à esquerda}
-   %   {centro \thepage}
-   %   {direita}
      {}{}{\vspace{-3em} \\ \footnotesize{VII INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY (SIINTEC)}\\ {\textit{One Planet, one Ocean and one Health. - 2021}\\ \vspace{\onelineskip}}}
   \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
-   %   {topo ímpar/oneside à esquerda}
-   %   {centro\thepage}
-   %   {direita}
       {}{}{\vspace{-3em} \\ \footnotesize{VII INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY (SIINTEC)}\\ {\textit{One Planet, one Ocean and one Health. - 2021}\\ \vspace{\onelineskip}}} 
   %\makeheadrule{meuestilo}{\textwidth}{\normalrulethickness} %linha
   %% rodapé
   \makeevenfoot{meuestilo}
       {ISSN: 2357-7592}{}{}
-      % {rodapé par à esquerda} %%pagina par
-      % {centro \thepage}
-      % {direita} 
   \makeoddfoot{meuestilo} %%pagina ímpar ou com oneside
       {ISSN: 2357-7592}{}{}
-      % {rodapé ímpar/onside à esquerda}
-      % {centro \thepage}
-      % {direita}
 
 % --- Informações de dados para CAPA e FOLHA DE ROSTO ---
 \titulo{TITLE ARIAL 14, BOLD AND UPPERCASE, JUSTIFIED, SIMPLE SPACE (\underline{in Portuguese}), WITH A MAXIMUM OF THREE LINES}
@@ -319,7 +318,6 @@ References should be numbered in ascending order in the text and enclosed in squ
 Please contact the Organizing Committee of the event if you have any questions.
 
 
-%//TODO parei aqui
 
 \subsection{\textbf{Secondarry Section (arial 12)}}
 
@@ -333,196 +331,60 @@ Consecutive numbering should be used to systematize the content of the manuscrip
 \section{\textbf{METHODOLOGY (ARIAL 12)}}
 
 In the Methodology, the type of study, site, population (in case of field research), period, technique and data analysis, as well as ethical standards followed (in case of human research) should be explained. In short, describe all the method(s) used to perform the study.
-The figures can be colored and should be inserted in the body of the text, close to their citations in the text. The figures should be centered, without exceeding the size limited by the margins of the page.
-Each figure must contain a title numbered in Arabic numerals. Titles should be written in Arial 11 font, and should be centered at the top of the figure.
 
-//TODO figure
+The figures can be colored and should be inserted in the body of the text, close to their citations in the text. The figures should be centered, without exceeding the size limited by the margins of the page.
+
+Each figure, like the Figure \ref{fig:figura-organograma} must contain a title numbered in Arabic numerals. Titles should be written in Arial 11 font, and should be centered at the top of the figure.
+
+
+\begin{figure} [h!]	
+   \label{fig:figura-organograma}											 
+	\centering		
+	\caption{Figure title.}
+	\includegraphics[width=1\textwidth]{organograma.png}
+	\legend{Fonte: \cite{pinto2005biodiesel}}
+\end{figure}
+
+
 
 Tables should be centered (using the entire area between the margins). The tables can be colored or black and white. The title of the table should be centered and written in Arial 11 font. The measurement units corresponding to all variables should be clearly indicated using the International System (IS).
 
-
-//TODO table
+%tabela 
+\begin{table}[h]
+   \renewcommand{\arraystretch}{1.2}
+   \centering
+   \resizebox{\textwidth}{!}{
+      \begin{threeparttable}
+         \centering
+         \caption{Table title}
+         \label{tab:pesorelativo}
+            \begin{tabular}{| >{\centering\arraybackslash}m{2.0cm} | >{\centering\arraybackslash}m{2.0cm} | >{\centering\arraybackslash}m{2.0cm} | >{\centering\arraybackslash}m{2.0cm}|}
+               \hline
+               \hline
+                  & \textbf{Variable 1 [unit]} & \textbf{Variable 2 [unit]} & \textbf{Variable 3 [unit]} \\ \hline \hline
+               
+                  \textbf{A} & 1 & 2 & 3 \\ \hline
+                  \textbf{B} & 4 & 5 & 6 \\ \hline
+                  \textbf{C} & 7 & 8 & 9 \\ \hline
+                  \textbf{D} & 1 & 2 & 3  \\ \hline
+               
+            \end{tabular}
+      \end{threeparttable}
+    }
+    \legend{Fonte: \cite{pinto2005biodiesel}}
+\end{table}
 
 \section{\textbf{RESULTS AND DISCUSSION (ARIAL 12)}}
 
 Equations should be written in italics with consecutive numbering in parentheses and should be right-justified. Equations with more than one line should be numbered on the last line, in parentheses and right-justified.
 
 
+\begin{equation}
+   \varepsilon . T_{\zeta, i} + (1 - \varepsilon).T_{h, i} - T_{h, \sigma} = 0
+\end{equation}
 
-//TODO equation
 
 If necessary, the list of notations and symbols used, as well as their units of measurement, should be listed before the references (in alphabetical order).
-
-
-
-% Este documento e seu código-fonte são exemplos de referência de uso da classe
-% \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento exemplifica a
-% elaboração de publicação periódica científica impressa produzida conforme a ABNT
-% NBR 6022:2018 \emph{Informação e documentação - Artigo em publicação periódica
-% científica - Apresentação}.
-
-% A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX\ não é
-% modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-% somente os requisitos das normas da ABNT. Uma lista completa das normas
-% observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
-
-% Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-% \url{http://www.abntex.net.br/}. Também fique livre para conhecer,
-% estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-% modificados tenham seus nomes alterados e que os créditos sejam dados aos
-% autores originais, nos termos da ``The \LaTeX\ Project Public
-% License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-
-% Encorajamos que sejam realizadas customizações específicas deste documento.
-% Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-% \abnTeX, distribua-se arquivos com as respectivas customizações. Isso permite
-% que futuras versões do \abnTeX~não se tornem automaticamente incompatíveis com
-% as customizações promovidas. Consulte \citeonline{abntex2-wiki-como-customizar}
-% para mais informações.
-
-% Este exemplo deve ser utilizado como complemento do manual da classe
-% \textsf{abntex2} \cite{abntex2classe}, dos manuais do pacote
-% \textsf{abntex2cite} \cite{abntex2cite,abntex2cite-alf} e do manual da classe
-% \textsf{memoir} \cite{memoir}. Consulte o \citeonline{abntex2modelo} para obter
-% exemplos e informações adicionais de uso de \abnTeX\ e de \LaTeX.
-
-% % ----------------------------------------------------------
-% % Seção de explicações
-% % ----------------------------------------------------------
-% \section{Exemplos de comandos}
-
-% \subsection{Margens}
-
-% A norma ABNT NBR 6022:2018 não estabelece uma margem específica a ser utilizada
-% no artigo científico. Dessa maneira, caso deseje alterar as margens, utilize os
-% comandos abaixo:
-
-% \begin{verbatim}
-%    \setlrmarginsandblock{3cm}{3cm}{*}
-%    \setulmarginsandblock{3cm}{3cm}{*}
-%    \checkandfixthelayout
-% \end{verbatim}
-
-% \subsection{Duas colunas}
-
-% É comum que artigos científicos sejam escritos em duas colunas. Para isso,
-% adicione a opção \texttt{twocolumn} à classe do documento, como no exemplo:
-
-% \begin{verbatim}
-%    \documentclass[article,11pt,oneside,a4paper,twocolumn]{abntex2}
-% \end{verbatim}
-
-% É possível indicar pontos do texto que se deseja manter em apenas uma coluna,
-% geralmente o título e os resumos. Os resumos em única coluna em documentos com
-% a opção \texttt{twocolumn} devem ser escritos no ambiente
-% \texttt{resumoumacoluna}:
-
-% \begin{verbatim}
-%    \twocolumn[              % INICIO DE ARTIGO EM DUAS COLUNAS
-
-%      \maketitle             % pagina de titulo
-
-%      \renewcommand{\resumoname}{Nome do resumo}
-%      \begin{resumoumacoluna}
-%         Texto do resumo.
-      
-%         \vspace{\onelineskip}
- 
-%         \noindent
-%         \textbf{Palavras-chave}: latex. abntex. editoração de texto.
-%      \end{resumoumacoluna}
-   
-%    ]                        % FIM DE ARTIGO EM DUAS COLUNAS
-% \end{verbatim}
-
-% \subsection{Recuo do ambiente \texttt{citacao}}
-
-% Na produção de artigos (opção \texttt{article}), pode ser útil alterar o recuo
-% do ambiente \texttt{citacao}. Nesse caso, utilize o comando:
-
-% \begin{verbatim}
-%    \setlength{\ABNTEXcitacaorecuo}{1.8cm}
-% \end{verbatim}
-
-% Quando um documento é produzido com a opção \texttt{twocolumn}, a classe
-% \textsf{abntex2} automaticamente altera o recuo padrão de 4 cm, definido pela
-% ABNT NBR 10520:2002 seção 5.3, para 1.8 cm.
-
-% \section{Cabeçalhos e rodapés customizados}
-
-% Diferentes estilos de cabeçalhos e rodapés podem ser criados usando os
-% recursos padrões do \textsf{memoir}.
-
-% Um estilo próprio de cabeçalhos e rodapés pode ser diferente para páginas pares
-% e ímpares. Observe que a diferenciação entre páginas pares e ímpares só é
-% utilizada se a opção \texttt{twoside} da classe \textsf{abntex2} for utilizado.
-% Caso contrário, apenas o cabeçalho padrão da página par (\emph{even}) é usado.
-
-% Veja o exemplo abaixo cria um estilo chamado \texttt{meuestilo}. O código deve
-% ser inserido no preâmbulo do documento.
-
-% \begin{verbatim}
-% %%criar um novo estilo de cabeçalhos e rodapés
-% \makepagestyle{meuestilo}
-%   %%cabeçalhos
-%   \makeevenhead{meuestilo} %%pagina par
-%      {topo par à esquerda}
-%      {centro \thepage}
-%      {direita}
-%   \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
-%      {topo ímpar/oneside à esquerda}
-%      {centro\thepage}
-%      {direita}
-%   \makeheadrule{meuestilo}{\textwidth}{\normalrulethickness} %linha
-%   %% rodapé
-%   \makeevenfoot{meuestilo}
-%      {rodapé par à esquerda} %%pagina par
-%      {centro \thepage}
-%      {direita} 
-%   \makeoddfoot{meuestilo} %%pagina ímpar ou com oneside
-%      {rodapé ímpar/onside à esquerda}
-%      {centro \thepage}
-%      {direita}
-% \end{verbatim}
-
-% Para usar o estilo criado, use o comando abaixo imediatamente após um dos
-% comandos de divisão do documento. Por exemplo:
-
-% \begin{verbatim}
-%    \begin{document}
-%      %%usar o estilo criado na primeira página do artigo:
-%      \pretextual
-%      \pagestyle{meuestilo}
-     
-%      \maketitle
-%      ...
-     
-%      %%usar o estilo criado nas páginas textuais
-%      \textual
-%      \pagestyle{meuestilo}
-     
-%      \chapter{Novo capítulo}
-%      ...
-%    \end{document}  
-% \end{verbatim}
-   
-% Outras informações sobre cabeçalhos e rodapés estão disponíveis na seção 7.3 do
-% manual do \textsf{memoir} \cite{memoir}.
-
-% \section{Mais exemplos no Modelo Canônico de Trabalhos Acadêmicos}
-
-% Este modelo de artigo é limitado em número de exemplos de comandos, pois são
-% apresentados exclusivamente comandos diretamente relacionados com a produção de
-% artigos.
-
-% Para exemplos adicionais de \abnTeX\ e \LaTeX, como inclusão de figuras,
-% fórmulas matemáticas, citações, e outros, consulte o documento
-% \citeonline{abntex2modelo}.
-
-% \section{Consulte o manual da classe \textsf{abntex2}}
-
-% Consulte o manual da classe \textsf{abntex2} \cite{abntex2classe} para uma
-% referência completa das macros e ambientes disponíveis.
 
 % ---
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
@@ -559,15 +421,6 @@ References must be numbered consecutively and listed. References must be numbere
 \bibliography{abntex2-modelo-references}
 
 % ----------------------------------------------------------
-% Glossário
-% ----------------------------------------------------------
-%
-% Há diversas soluções prontas para glossário em LaTeX. 
-% Consulte o manual do abnTeX2 para obter sugestões.
-%
-%\glossary
-
-% ----------------------------------------------------------
 % Apêndices
 % ----------------------------------------------------------
 
@@ -576,7 +429,6 @@ References must be numbered consecutively and listed. References must be numbere
 % ---
 \begin{apendicesenv}
 
-   \newpage
 % ----------------------------------------------------------
 \section*{OTHER INFORMATION}
 \begin{enumerate}[label=\alph*)]
@@ -593,26 +445,8 @@ SENAI CIMATEC
 % ----------------------------------------------------------
 
 \end{apendicesenv}
-% % ---
+% ---
 
-% % ----------------------------------------------------------
-% % Anexos
-% % ----------------------------------------------------------
-% \cftinserthook{toc}{AAA}
-% % ---
-% % Inicia os anexos
-% % ---
-% %\anexos
-% \begin{anexosenv}
-
-% % ---
-% \chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
-% parturient montes nascetur ridiculus mus}
-% % ---
-
-% \lipsum[31]
-
-% \end{anexosenv}
 
 % ----------------------------------------------------------
 % Agradecimentos

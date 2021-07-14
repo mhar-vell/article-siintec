@@ -230,7 +230,8 @@
 % ---
 % ``Tamanho menor e uniforme'' ditada pela NBR 14724/2011 - 5.1
 % ---
-\newcommand{\ABNTEXfontereduzida}{\footnotesize}
+\newcommand{\ABNTEXfontereduzida}{\normalsize}
+\newcommand{\ABNTEXfonten}{\normalsize}
 % ---
 
 % ---
